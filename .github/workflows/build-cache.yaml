@@ -1,0 +1,39 @@
+name: Spack Build Cache
+
+# TODO we either want nightly, or for binoc to run to find updates
+on:
+  pull_request: []
+  push:
+    branches:
+      - main 
+ 
+jobs:
+  install-spack:
+    runs-on: ubuntu-latest
+    name: Install Spack
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Spack
+        uses: vsoch/spack-packages-action/install@main
+
+  build-binaries:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    name: Build Package Binaries
+
+    # TODO make this derived from a matrix from a user... something? spack.yaml?
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Spack Package
+        uses: vsoch/spack-packages-action/package@main
+        with:
+          package: zlib
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: ${{ github.event_name != 'pull_request' }}
+      - name: Upload spec.json
+        run:
+           echo ${{ env.spec_json}}
+           cat ${{ env.spec_json }}
