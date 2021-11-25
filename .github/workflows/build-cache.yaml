@@ -6,8 +6,26 @@ on:
   push:
     branches:
       - main 
- 
+
 jobs:
+
+  # Note: this randomly selects 25 spack packages to build, for the build-binaries step
+  # You can update this matrix generation step to derive packages however you like
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: read
+    outputs:
+      packages: ${{ steps.choose.outputs.packages }}
+
+    name: Randomly Choose Packages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate Package Matrix
+        id: choose
+        run: pip install requests && python scripts/generate-matrix.py
+
   install-spack:
     runs-on: ubuntu-latest
     name: Install Spack
@@ -19,21 +37,35 @@ jobs:
 
   build-binaries:
     runs-on: ubuntu-latest
+    needs:
+      - prepare
     permissions:
       packages: write
-    name: Build Package Binaries
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.prepare.outputs.packages) }}
 
-    # TODO make this derived from a matrix from a user... something? spack.yaml?
+    name: Build Package Binaries
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build Spack Package
-        uses: vsoch/spack-package-action/package@main
+        uses: vsoch/spack-package-action/package@add/buildcache-action
+        id: package
         with:
-          package: zlib
+          package: ${{ matrix.package }}
           token: ${{ secrets.GITHUB_TOKEN }}
           deploy: ${{ github.event_name != 'pull_request' }}
-      - name: Upload spec.json
-        run:
-           echo ${{ env.spec_json}}
-           cat ${{ env.spec_json }}
+
+      - name: Update Build Cache
+        uses: vsoch/spack-package-action/buildcache@add/buildcache-action
+        with:
+          package_name: ${{ steps.package.outputs.package_name }}
+          package_tagged_name: ${{ steps.package.outputs.package_tagged_name }}
+          package_content_type: ${{ steps.package.outputs.package_content_type }}
+          package_tag: ${{ steps.package.outputs.package_tag }}
+          spec_json: ${{ steps.package.outputs.spec_json }}
+          cache_prefix: ${{ steps.package.outputs.build_cache_prefix }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: ${{ github.event_name != 'pull_request' }}
