@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Spack
-        uses: vsoch/spack-packages-action/install@main
+        uses: vsoch/spack-package-action/install@main
 
   build-binaries:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build Spack Package
-        uses: vsoch/spack-packages-action/package@main
+        uses: vsoch/spack-package-action/package@main
         with:
           package: zlib
           token: ${{ secrets.GITHUB_TOKEN }}
