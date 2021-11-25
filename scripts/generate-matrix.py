@@ -14,6 +14,7 @@ def main():
     packages = response.json()
     matrix = random.sample(packages, 25)
     print(matrix)
+    matrix = ['zlib']
     print("::set-output name=packages::%s\n" % json.dumps(matrix))
 
 if __name__ == "__main__":
