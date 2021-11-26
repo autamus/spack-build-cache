@@ -63,6 +63,7 @@ jobs:
           printf "GitHub Actor: ${GITHUB_ACTOR}\n"
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@users.noreply.github.com"
+          git checkout gh-pages || git checkout -b gh-pages
           ls .
           git add ./docs/*
 
@@ -72,8 +73,8 @@ jobs:
             set -e
             printf "Changes\n"
             git commit -m "Automated push to update build cache $(date '+%Y-%m-%d')" || exit 0
-            git pull origin ${INPUT_BRANCH} || printf "Does not exist yet.\n"
-            git push origin ${INPUT_BRANCH} || exit 0
+            git pull origin gh-pages || printf "Does not exist yet.\n"
+            git push origin gh-pages || exit 0
           else
             set -e
             printf "No changes\n"
