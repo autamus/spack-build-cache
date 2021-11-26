@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate Package Matrix
         id: choose
-        run: pip install requests && python scripts/generate-matrix.py ${{ github.event.type }}
+        run: pip install requests && python scripts/generate-matrix.py ${{ github.event_name }}
 
   build-binaries:
     runs-on: ubuntu-latest

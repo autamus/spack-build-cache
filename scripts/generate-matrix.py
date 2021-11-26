@@ -7,7 +7,7 @@ import json
 
 def main(event_type):
     print("Event type: %s" % event_type)
-    if event_type == "PullRequestEvent":
+    if event_type == "pull_request":
         matrix = ['zlib']
     else:
         response = requests.get("https://spack.github.io/packages/data/packages.json")
