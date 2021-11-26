@@ -47,7 +47,6 @@ jobs:
         id: package
         with:
           package: ${{ matrix.package }}
-          branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
           deploy: ${{ github.event_name != 'pull_request' }}
 
