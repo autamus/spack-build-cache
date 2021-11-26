@@ -42,6 +42,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
       - name: Build Spack Package
         uses: vsoch/spack-package-action/package@add/buildcache-action
         id: package
