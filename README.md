@@ -8,4 +8,4 @@ served via GitHub workflows, packages, and pages. It's powered by
 
 > Will it work?
 
-I don't know, but let's find out!
+Probably not, but trying anyway.
