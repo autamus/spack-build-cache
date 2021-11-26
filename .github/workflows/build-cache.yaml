@@ -1,6 +1,5 @@
 name: Spack Build Cache
 
-# TODO we either want nightly, or for binoc to run to find updates
 on:
   pull_request: []
   push:
@@ -24,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate Package Matrix
         id: choose
-        run: pip install requests && python scripts/generate-matrix.py
+        run: pip install requests && python scripts/generate-matrix.py ${{ github.event.type }}
 
   build-binaries:
     runs-on: ubuntu-latest
@@ -52,11 +51,5 @@ jobs:
       - name: Update Build Cache
         uses: vsoch/spack-package-action/buildcache@add/buildcache-action
         with:
-          package_name: ${{ steps.package.outputs.package_name }}
-          package_tagged_name: ${{ steps.package.outputs.package_tagged_name }}
-          package_content_type: ${{ steps.package.outputs.package_content_type }}
-          package_tag: ${{ steps.package.outputs.package_tag }}
-          spec_json: ${{ steps.package.outputs.spec_json }}
-          cache_prefix: ${{ steps.package.outputs.build_cache_prefix }}
           token: ${{ secrets.GITHUB_TOKEN }}
           deploy: ${{ github.event_name != 'pull_request' }}
