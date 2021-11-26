@@ -63,26 +63,4 @@ jobs:
       - name: Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |  
-          printf "GitHub Actor: ${GITHUB_ACTOR}\n"
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@users.noreply.github.com"
-          git config pull.rebase false 
-          ls .
-          git add docs
-          git add docs//*
-          git add docs/*
-          git status
-
-          set +e
-          git status | grep -e "modified" -e "new"
-          if [ $? -eq 0 ]; then
-            set -e
-            printf "Changes\n"
-            git commit -m "Automated push to update build cache $(date '+%Y-%m-%d')" || exit 0
-            git pull origin main || printf "Does not exist yet.\n"
-            git push origin main || exit 0
-          else
-            set -e
-            printf "No changes\n"
-          fi
+        run: /bin/bash scripts/deploy.sh
