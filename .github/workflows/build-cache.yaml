@@ -54,7 +54,7 @@ jobs:
         uses: vsoch/spack-package-action/buildcache@add/buildcache-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          deploy: ${{ github.event_name != 'pull_request' }}
+          deploy: false
           
       - name: Push Changes
         env:
