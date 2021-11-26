@@ -57,20 +57,6 @@ jobs:
       - name: Update Build Cache
         uses: vsoch/spack-package-action/buildcache@add/buildcache-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          deploy: false
-          
-      - name: Commit Changes
-        run: |
-          git add docs/*
-          git add docs//*
-          git add docs
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Update build cace" -a
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          user: ${{ secrets.DEPLOY_USER }}
+          deploy: ${{ github.event_name != 'pull_request' }}
