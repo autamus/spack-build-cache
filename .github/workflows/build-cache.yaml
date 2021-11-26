@@ -2,6 +2,8 @@ name: Spack Build Cache
 
 on:
   pull_request: []
+  schedule:
+    - cron:  '5 4 * * *'
   push:
     branches:
       - main 
