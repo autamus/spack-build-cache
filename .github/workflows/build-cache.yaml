@@ -74,7 +74,7 @@ jobs:
             git commit -m "Automated push to update build cache $(date '+%Y-%m-%d')" || exit 0
             git pull origin ${INPUT_BRANCH} || printf "Does not exist yet.\n"
             git push origin ${INPUT_BRANCH} || exit 0
-         else
-           set -e
-           printf "No changes\n"
-         fi
+          else
+            set -e
+            printf "No changes\n"
+          fi
