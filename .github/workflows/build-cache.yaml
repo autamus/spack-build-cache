@@ -65,6 +65,8 @@ jobs:
           git config --global user.email "github-actions@users.noreply.github.com"
           git config pull.rebase false 
           ls .
+          git add docs
+          git add docs//*
           git add docs/*
           git status
 
