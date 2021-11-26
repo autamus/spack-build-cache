@@ -47,6 +47,7 @@ jobs:
         id: package
         with:
           package: ${{ matrix.package }}
+          branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
           deploy: ${{ github.event_name != 'pull_request' }}
 
@@ -54,4 +55,5 @@ jobs:
         uses: vsoch/spack-package-action/buildcache@add/buildcache-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
           deploy: ${{ github.event_name != 'pull_request' }}
