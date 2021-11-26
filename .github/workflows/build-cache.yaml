@@ -1,0 +1,57 @@
+name: Spack Build Cache
+
+on:
+  pull_request: []
+  schedule:
+    - cron:  '5 4 * * *'
+  push:
+    branches:
+      - main 
+
+jobs:
+
+  # Note: this randomly selects 25 spack packages to build, for the build-binaries step
+  # You can update this matrix generation step to derive packages however you like
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: read
+    outputs:
+      packages: ${{ steps.choose.outputs.packages }}
+
+    name: Randomly Choose Packages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate Package Matrix
+        id: choose
+        run: pip install requests && python scripts/generate-matrix.py ${{ github.event_name }}
+
+  build-binaries:
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+    permissions:
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.prepare.outputs.packages) }}
+
+    name: Build Package Binaries
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Spack Package
+        uses: vsoch/spack-package-action/package@add/buildcache-action
+        id: package
+        with:
+          package: ${{ matrix.package }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: ${{ github.event_name != 'pull_request' }}
+
+      - name: Update Build Cache
+        uses: vsoch/spack-package-action/buildcache@add/buildcache-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: ${{ github.event_name != 'pull_request' }}
