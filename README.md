@@ -9,5 +9,3 @@ served via GitHub workflows, packages, and pages. It's powered by
 > Will it work?
 
 idk, but let's find out!
-
-**under development**
