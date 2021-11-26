@@ -3,7 +3,7 @@ name: Spack Build Cache
 on:
   pull_request: []
   schedule:
-    - cron:  '5 4 * * *'
+    - cron: "0 * * * *"
   push:
     branches:
       - main 
@@ -63,6 +63,7 @@ jobs:
           printf "GitHub Actor: ${GITHUB_ACTOR}\n"
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@users.noreply.github.com"
+          git config pull.rebase false 
           ls .
           git add ./docs/*
 
