@@ -1,0 +1,137 @@
+{
+  "spec": {
+    "_meta": {
+      "version": 2
+    },
+    "nodes": [
+      {
+        "name": "ncurses",
+        "version": "6.2",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": {
+            "name": "broadwell",
+            "vendor": "GenuineIntel",
+            "features": [
+              "adx",
+              "aes",
+              "avx",
+              "avx2",
+              "bmi1",
+              "bmi2",
+              "f16c",
+              "fma",
+              "mmx",
+              "movbe",
+              "pclmulqdq",
+              "popcnt",
+              "rdrand",
+              "rdseed",
+              "sse",
+              "sse2",
+              "sse4_1",
+              "sse4_2",
+              "ssse3"
+            ],
+            "generation": 0,
+            "parents": [
+              "haswell"
+            ]
+          }
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "abi": "none",
+          "symlinks": false,
+          "termlib": true,
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "3frjcw4yqablmivagm5hghz7omggs6vswzdzsiyb6e7dwquggwqa====",
+        "dependencies": [
+          {
+            "name": "pkgconf",
+            "full_hash": "pnfot6cmrpqe5eb6w3pejfpffjgnmxcn",
+            "type": [
+              "build"
+            ]
+          }
+        ],
+        "hash": "76gsydzye33lca3iqhfijgaxiq46ga53",
+        "full_hash": "c3qy32d2dg2ziehpy6p7ujkburvvsrfx",
+        "build_hash": "omuu2iosl5iryvgot6mdawsrflbb7bj2"
+      },
+      {
+        "name": "pkgconf",
+        "version": "1.8.0",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": {
+            "name": "broadwell",
+            "vendor": "GenuineIntel",
+            "features": [
+              "adx",
+              "aes",
+              "avx",
+              "avx2",
+              "bmi1",
+              "bmi2",
+              "f16c",
+              "fma",
+              "mmx",
+              "movbe",
+              "pclmulqdq",
+              "popcnt",
+              "rdrand",
+              "rdseed",
+              "sse",
+              "sse2",
+              "sse4_1",
+              "sse4_2",
+              "ssse3"
+            ],
+            "generation": 0,
+            "parents": [
+              "haswell"
+            ]
+          }
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "4pvkcvkheojnjz7m6pqm7apzo4xosupo2hwbesigcfbysujhwdaq====",
+        "hash": "l7oatthks5drnodxuptelorufhkqr4rj",
+        "full_hash": "pnfot6cmrpqe5eb6w3pejfpffjgnmxcn",
+        "build_hash": "l7oatthks5drnodxuptelorufhkqr4rj"
+      }
+    ]
+  },
+  "binary_cache_checksum": {
+    "hash_algorithm": "sha256",
+    "hash": "87bdb7d5d55dc7c2b28b3f9befd82b1c420b459e7e616960b497432d1d44dbc1"
+  },
+  "buildinfo": {
+    "relative_prefix": "linux-ubuntu20.04-broadwell/gcc-10.3.0/ncurses-6.2-76gsydzye33lca3iqhfijgaxiq46ga53",
+    "relative_rpaths": true
+  }
+}
