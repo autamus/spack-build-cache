@@ -15,5 +15,9 @@ permalink: /manifest/dates/
 {% endfor %}
 
 {"keys": ["{{ site.url }}{{ site.baseurl }}/cache/{{ site.signing_key }}"],
+ "branch": "{{ site.branch }}",
+ "subfolder": "{{ site.subfolder }}",
+ "url_prefix": "https://raw.githubusercontent.com/{{ site.github.owner_name }}/{{ site.github.repository_name }}/{{ site.branch }}/{{ site.subfolder }}/_cache/"
  "dates": [{% for date in dates %}"{{ date }}"{% if forloop.last %}{% else %},
 {% endif %}{% endfor %}]}
+

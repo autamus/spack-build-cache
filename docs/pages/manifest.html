@@ -4,5 +4,5 @@ permalink: /manifest/
 ---
 
 {"keys": ["{{ site.url }}{{ site.baseurl }}/cache/{{ site.signing_key }}"],
- "packages": [{% for cache in site.cache %} {"name": "{{ cache.title }}", "spec": "https://raw.githubusercontent.com/{{ site.github.owner_name }}/{{ site.github.repository_name }}/{{ site.branch }}/docs/_cache/{{ cache.url | split: "/" |  slice: 2, 2 | join: "/"  }}/{{ cache.json }}" , "url": "{{ cache.package }}", "html_url": "{{ site.url }}{{ site.baseurl }}/{{ cache.url }}"}{% if forloop.last %}{% else %},
+ "packages": [{% for cache in site.cache %} {"name": "{{ cache.title }}", "spec": "https://raw.githubusercontent.com/{{ site.github.owner_name }}/{{ site.github.repository_name }}/{{ site.branch }}/{{ site.subfolder }}/_cache/{{ cache.url | split: "/" |  slice: 2, 2 | join: "/"  }}/{{ cache.json }}" , "url": "{{ cache.package }}", "html_url": "{{ site.url }}{{ site.baseurl }}/{{ cache.url }}"}{% if forloop.last %}{% else %},
 {% endif %}{% endfor %}]}
