@@ -1,0 +1,39 @@
+name: Spack Build Cache
+
+on:
+  workflow_dispatch: 
+    inputs:
+      package:
+        description: 'Package to run builds and save build caches for'
+        required: true
+
+jobs:
+
+  build-binaries:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    env:
+      package: ${{ github.event.inputs.package }}
+    name: Build Package Binary
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Build Spack Package
+        uses: vsoch/spack-package-action/package@add/buildcache-action
+        id: package
+        with:
+          package: ${{ env.package }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: ${{ github.event_name != 'pull_request' }}
+
+      - name: Update Build Cache
+        uses: vsoch/spack-package-action/buildcache@add/buildcache-action
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          user: ${{ secrets.DEPLOY_USER }}
+          deploy: ${{ github.event_name != 'pull_request' }}
