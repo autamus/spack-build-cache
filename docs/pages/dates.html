@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /manifest/dates/
+---
+
+{% assign dates = "" | split: '/' %}
+
+{% for cache in site.cache %}
+{% assign subfolder = cache.url | split: "/" |  slice: 2, 2 | join: "/" %}
+{% unless subfolder == "" %}
+{% unless dates contains subfolder %}
+{% assign dates = dates | push: subfolder %}
+{% endunless %}
+{% endunless %}
+{% endfor %}
+
+{"keys": ["{{ site.url }}{{ site.baseurl }}/cache/{{ site.signing_key }}"],
+ "dates": [{% for date in dates %}"{{ date }}"{% if forloop.last %}{% else %},
+{% endif %}{% endfor %}]}
