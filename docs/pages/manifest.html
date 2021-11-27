@@ -1,8 +1,0 @@
----
-layout: null
-permalink: /manifest/
----
-
-{"key": "{{ site.url }}{{ site.baseurl }}/cache/{{ site.signing_key }}",
- "packages": [{% for cache in site.cache %} {"name": "{{ cache.title }}", "url": "{{ cache.package }}", "html_url": "{{ site.url }}{{ site.baseurl }}/{{ cache.url }}"}{% if forloop.last %}{% else %},
-{% endif %}{% endfor %}]}
