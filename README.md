@@ -32,6 +32,7 @@ The easiest thing to do is to use the site as a template, so you will want to:
 4. **Importantly** create a personal access token (PAT) and save to `DEPLOY_USER` and `DEPLOY_TOKEN` in your repository secrets. If you change these names, make sure to update the workflow files.
 5. Double check that the workflow triggers are what you want
 6. Push to your repository and start building!
+7. After build, Make sure that url, baseurl, and other metadata is correctly set in the _config.yaml. E.g., for this site we have a custom domain and set url to autamus.io!
 
 If you have any questions, please [don't hesitate to open an issue](https://github.com/autamus/spack-build-cache/issues).
 If you have a critique or suggestion for the build cache website or the actions otherwise, please

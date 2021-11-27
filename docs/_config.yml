@@ -1,9 +1,8 @@
 signing_key: 4A424030614ADE118389C2FD27BDB3E5F0331921.pub
 baseurl: /spack-build-cache
-repository: 
+branch: main
 title: Spack Build Cache
 description: A GitHub-based build cache for spack, with a nice UI to boot.
-url: ""
 
 # Change if you deploy to a root, or another docs subfolder
 subfolder: "docs"
