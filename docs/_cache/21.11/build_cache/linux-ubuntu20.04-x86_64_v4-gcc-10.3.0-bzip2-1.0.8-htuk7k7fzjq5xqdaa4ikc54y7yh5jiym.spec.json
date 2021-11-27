@@ -1,0 +1,121 @@
+{
+  "spec": {
+    "_meta": {
+      "version": 2
+    },
+    "nodes": [
+      {
+        "name": "bzip2",
+        "version": "1.0.8",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "debug": false,
+          "pic": false,
+          "shared": true,
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "3pchiqmhi6gqv67bx5pjnoyy4n5w4gewud35jrf47o6ae6wwrp3q====",
+        "dependencies": [
+          {
+            "name": "diffutils",
+            "full_hash": "fw3bavpszc5ob3rshfnmvwudybnfezqu",
+            "type": [
+              "build"
+            ]
+          }
+        ],
+        "hash": "htuk7k7fzjq5xqdaa4ikc54y7yh5jiym",
+        "full_hash": "npxepwmirqpgoem577caf3fvbvp3osvu",
+        "build_hash": "d4vb3iyo3he7fpfnumwd5m25sc66um2l"
+      },
+      {
+        "name": "diffutils",
+        "version": "3.8",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "5u6apwogrtsv2lil6kgnfc4jgvuhdl3faokine3qz45eoy54hn4a====",
+        "dependencies": [
+          {
+            "name": "libiconv",
+            "full_hash": "brqglagmbphfnm3kwh6sstmkktponq2t",
+            "type": [
+              "build",
+              "link"
+            ]
+          }
+        ],
+        "hash": "uwixcnostdr6ibscxx6pijhv43dehfin",
+        "full_hash": "fw3bavpszc5ob3rshfnmvwudybnfezqu",
+        "build_hash": "ih5maiyew7zx3hdf5xktd6v2hto5c4p5"
+      },
+      {
+        "name": "libiconv",
+        "version": "1.16",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "libs": [
+            "shared",
+            "static"
+          ],
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "sxz2pairnfcvrsuujheckgjrl5kguygyzcd665lk56hvsiyfi7ha====",
+        "hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc",
+        "full_hash": "brqglagmbphfnm3kwh6sstmkktponq2t",
+        "build_hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc"
+      }
+    ]
+  },
+  "binary_cache_checksum": {
+    "hash_algorithm": "sha256",
+    "hash": "d1998452edaf15594c75e41ed8cbf435cd2f7860b1c751ecd4e216458cbf46cc"
+  },
+  "buildinfo": {
+    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/bzip2-1.0.8-htuk7k7fzjq5xqdaa4ikc54y7yh5jiym",
+    "relative_rpaths": true
+  }
+}

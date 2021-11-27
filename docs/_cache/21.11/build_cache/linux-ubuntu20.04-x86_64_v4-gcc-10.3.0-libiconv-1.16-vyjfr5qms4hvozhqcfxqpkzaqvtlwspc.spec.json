@@ -5,8 +5,8 @@
     },
     "nodes": [
       {
-        "name": "zlib",
-        "version": "1.2.11",
+        "name": "libiconv",
+        "version": "1.16",
         "arch": {
           "platform": "linux",
           "platform_os": "ubuntu20.04",
@@ -18,9 +18,10 @@
         },
         "namespace": "builtin",
         "parameters": {
-          "optimize": true,
-          "pic": true,
-          "shared": true,
+          "libs": [
+            "shared",
+            "static"
+          ],
           "cflags": [],
           "cppflags": [],
           "cxxflags": [],
@@ -28,19 +29,19 @@
           "ldflags": [],
           "ldlibs": []
         },
-        "package_hash": "t3qdu2afvzyuexh6o6rnekus2anqxoussw65cpmwm47dzkbmbtia====",
-        "hash": "2bkp3o6gfeilpf4o7d2h7xcujnupytlt",
-        "full_hash": "svf5jid6vyufpu3zzfxvodk35hrvwzbz",
-        "build_hash": "2bkp3o6gfeilpf4o7d2h7xcujnupytlt"
+        "package_hash": "sxz2pairnfcvrsuujheckgjrl5kguygyzcd665lk56hvsiyfi7ha====",
+        "hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc",
+        "full_hash": "brqglagmbphfnm3kwh6sstmkktponq2t",
+        "build_hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc"
       }
     ]
   },
   "binary_cache_checksum": {
     "hash_algorithm": "sha256",
-    "hash": "01b0c89504628b91b16cbb98c8c803c8eff3f677d7a372a0f9adb3c878591098"
+    "hash": "0e5ae9f9684339bf1a0558151fc2b806d13182649f6544c9d168a7547bce1985"
   },
   "buildinfo": {
-    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/zlib-1.2.11-2bkp3o6gfeilpf4o7d2h7xcujnupytlt",
+    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/libiconv-1.16-vyjfr5qms4hvozhqcfxqpkzaqvtlwspc",
     "relative_rpaths": true
   }
 }

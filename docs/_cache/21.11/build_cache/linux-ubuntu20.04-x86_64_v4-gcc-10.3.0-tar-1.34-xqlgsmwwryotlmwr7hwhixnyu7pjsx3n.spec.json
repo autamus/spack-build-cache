@@ -1,0 +1,83 @@
+{
+  "spec": {
+    "_meta": {
+      "version": 2
+    },
+    "nodes": [
+      {
+        "name": "tar",
+        "version": "1.34",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "whvisexldbhdyii7hjxgyaxoggz57uyd3ol2vw5ysmyyi2f2exsa====",
+        "dependencies": [
+          {
+            "name": "libiconv",
+            "full_hash": "brqglagmbphfnm3kwh6sstmkktponq2t",
+            "type": [
+              "build",
+              "link"
+            ]
+          }
+        ],
+        "hash": "xqlgsmwwryotlmwr7hwhixnyu7pjsx3n",
+        "full_hash": "kdobpr73exk7fqkt66c2n4xh7s4ytqav",
+        "build_hash": "zthb5ei5svymlvunxvjwcfclcavpmn3j"
+      },
+      {
+        "name": "libiconv",
+        "version": "1.16",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "libs": [
+            "shared",
+            "static"
+          ],
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "sxz2pairnfcvrsuujheckgjrl5kguygyzcd665lk56hvsiyfi7ha====",
+        "hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc",
+        "full_hash": "brqglagmbphfnm3kwh6sstmkktponq2t",
+        "build_hash": "vyjfr5qms4hvozhqcfxqpkzaqvtlwspc"
+      }
+    ]
+  },
+  "binary_cache_checksum": {
+    "hash_algorithm": "sha256",
+    "hash": "5706e861ef5731763018a12db6feb5b876ee35f8af7e291d98f3f12cd928d3b2"
+  },
+  "buildinfo": {
+    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/tar-1.34-xqlgsmwwryotlmwr7hwhixnyu7pjsx3n",
+    "relative_rpaths": true
+  }
+}

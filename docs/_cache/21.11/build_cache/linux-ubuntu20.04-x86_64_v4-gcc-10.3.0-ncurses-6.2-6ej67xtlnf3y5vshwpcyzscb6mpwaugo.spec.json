@@ -1,0 +1,81 @@
+{
+  "spec": {
+    "_meta": {
+      "version": 2
+    },
+    "nodes": [
+      {
+        "name": "ncurses",
+        "version": "6.2",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "abi": "none",
+          "symlinks": false,
+          "termlib": true,
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "3frjcw4yqablmivagm5hghz7omggs6vswzdzsiyb6e7dwquggwqa====",
+        "dependencies": [
+          {
+            "name": "pkgconf",
+            "full_hash": "pwc4x5uidvls74mf2no57sizpmvp2c55",
+            "type": [
+              "build"
+            ]
+          }
+        ],
+        "hash": "6ej67xtlnf3y5vshwpcyzscb6mpwaugo",
+        "full_hash": "tbcyujsq3c7jiq2uw2uyq6y6tu3zayap",
+        "build_hash": "lhvz6mjl7kpsmj2ibbtdglxt2skpny2w"
+      },
+      {
+        "name": "pkgconf",
+        "version": "1.8.0",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "4pvkcvkheojnjz7m6pqm7apzo4xosupo2hwbesigcfbysujhwdaq====",
+        "hash": "emoms6apok6mhano42f4ifrm233wh7lx",
+        "full_hash": "pwc4x5uidvls74mf2no57sizpmvp2c55",
+        "build_hash": "emoms6apok6mhano42f4ifrm233wh7lx"
+      }
+    ]
+  },
+  "binary_cache_checksum": {
+    "hash_algorithm": "sha256",
+    "hash": "033a87a96cbf343821e99139262b0c2645f7ab8dbfc6b4adf5e8afcbbb839436"
+  },
+  "buildinfo": {
+    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/ncurses-6.2-6ej67xtlnf3y5vshwpcyzscb6mpwaugo",
+    "relative_rpaths": true
+  }
+}
