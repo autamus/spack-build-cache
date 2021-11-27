@@ -1,4 +1,4 @@
-name: Spack Build Cache
+name: Manual Build Cache
 
 on:
   workflow_dispatch: 
