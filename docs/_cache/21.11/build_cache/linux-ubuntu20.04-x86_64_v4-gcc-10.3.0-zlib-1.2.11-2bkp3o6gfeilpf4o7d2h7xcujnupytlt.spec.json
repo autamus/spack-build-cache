@@ -1,0 +1,46 @@
+{
+  "spec": {
+    "_meta": {
+      "version": 2
+    },
+    "nodes": [
+      {
+        "name": "zlib",
+        "version": "1.2.11",
+        "arch": {
+          "platform": "linux",
+          "platform_os": "ubuntu20.04",
+          "target": "x86_64_v4"
+        },
+        "compiler": {
+          "name": "gcc",
+          "version": "10.3.0"
+        },
+        "namespace": "builtin",
+        "parameters": {
+          "optimize": true,
+          "pic": true,
+          "shared": true,
+          "cflags": [],
+          "cppflags": [],
+          "cxxflags": [],
+          "fflags": [],
+          "ldflags": [],
+          "ldlibs": []
+        },
+        "package_hash": "t3qdu2afvzyuexh6o6rnekus2anqxoussw65cpmwm47dzkbmbtia====",
+        "hash": "2bkp3o6gfeilpf4o7d2h7xcujnupytlt",
+        "full_hash": "svf5jid6vyufpu3zzfxvodk35hrvwzbz",
+        "build_hash": "2bkp3o6gfeilpf4o7d2h7xcujnupytlt"
+      }
+    ]
+  },
+  "binary_cache_checksum": {
+    "hash_algorithm": "sha256",
+    "hash": "696ffe6a2ca32a50b500992e88ef333c5773d713c357cc400056994244c173af"
+  },
+  "buildinfo": {
+    "relative_prefix": "linux-ubuntu20.04-x86_64_v4/gcc-10.3.0/zlib-1.2.11-2bkp3o6gfeilpf4o7d2h7xcujnupytlt",
+    "relative_rpaths": true
+  }
+}
