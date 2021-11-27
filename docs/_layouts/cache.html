@@ -1,0 +1,76 @@
+---
+layout: default
+css: ["post.css"]
+js: ["post.js"]
+---
+
+<header>
+  {% if page.toc %}
+    {% include header-toc.html %}
+  {% else %}
+    {% include header.html %}
+  {% endif %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-coy.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</header>
+<main>
+  <div class="container">
+    <div id="post-info">
+      <h3>{{ page.title }}</h3>
+      <span>
+        Updated on
+        <span style="display: initial;" class="cat-class">{{page.date | date: "%d/%m/%Y"}}</span>
+        {% for cat in page.categories %}
+          {% for catDat in site.data.categories %}
+            {% if catDat.slug == cat %}
+              {% assign catego = catDat %}
+            {% endif %}
+          {% endfor %}
+          {% if catego %}
+            <a class="cat-class cat-commas" href="{{site.baseurl}}/categories#{{cat | slugify}}">{{ catego.name }}</a>{% unless forloop.last %},{% else %}.{% endunless %}
+          {% endif %}
+        {% endfor %} <a style="float:right" href="https://github.com/{{ site.repository }}/edit/main/{{ site.subfolder }}/{{ page.path }}" target="_blank">🗒️ Edit on GitHub</a>
+      </span>
+    </div>
+
+    <div class="divider"></div>
+    <div class="row thi-post">
+      <div class="col s12">
+        {{ content }}         
+        <a href="https://{{ page.package }}" target="_blank"><span class="badge badge-info" style="color:white">package-page</span></a><br> {% if page.content_type %} <span class="badge badge-info" style="color:white">content-type: {{ page.content_type }}</span>{% endif %}<br>
+
+        <h2>Tags</h2>
+        <p>Also tagged {{ page.tagged }}</p>
+
+        <h2>Pull</h2>       
+        <pre><code>
+        oras pull {{ page.package }}
+        </code></pre>
+
+        <h2>Manifest</h2>
+        <pre><code class="language-javascript" id="json"></code></pre></code></pre>  
+      </div>
+    </div>
+
+    <div class="tag-list">
+      {% for tag in page.tags %}
+      {% capture test %}{{tag | slice: 0}}{% endcapture %}
+      {% capture testup %}{{tag | slice: 0 | upcase}}{% endcapture %}
+      <a class="tag-chip" href="{{site.baseurl}}/tags#{{tag | slugify}}{% if test == testup %}_cap{% endif %}"><div class="chip z-depth-1">{{tag}}</div></a>
+      {% endfor %}
+    </div>
+    {% include search_form.html %}
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+<script>
+  (async () => {
+    const response = await fetch('{{ page.json }}');
+    const data = await response.json();
+    console.log(data)
+    document.getElementById('json').innerHTML = JSON.stringify(data, undefined, 4)
+
+  })()
+</script>
