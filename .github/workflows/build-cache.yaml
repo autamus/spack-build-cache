@@ -44,7 +44,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build Spack Package
-        uses: vsoch/spack-package-action/package@add/buildcache-action
+        uses: vsoch/spack-package-action/package@develop
         id: package
         with:
           package: ${{ matrix.package }}
@@ -52,7 +52,7 @@ jobs:
           deploy: ${{ github.event_name != 'pull_request' }}
 
       - name: Update Build Cache
-        uses: vsoch/spack-package-action/buildcache@add/buildcache-action
+        uses: vsoch/spack-package-action/buildcache@develop
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
           user: ${{ secrets.DEPLOY_USER }}
